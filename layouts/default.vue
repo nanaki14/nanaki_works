@@ -1,5 +1,12 @@
 <template>
-  <div>
+  <LayoutContainer>
     <nuxt />
-  </div>
+  </LayoutContainer>
 </template>
+
+<script>
+import LayoutContainer from '@/components/organisms/LayoutContainer'
+export default {
+  components: { LayoutContainer }
+}
+</script>
