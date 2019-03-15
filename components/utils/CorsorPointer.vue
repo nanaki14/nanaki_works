@@ -12,9 +12,19 @@ import CursorMove from '@/assets/javascript/CursorMove'
 
 export default {
   name: 'CorsorPointer',
-  mounted() {
-    const cursor = new CursorMove({})
-    cursor.init()
+  props: {
+    isLoading: {
+      type: Boolean,
+      required: true
+    }
+  },
+  watch: {
+    isLoading: function(next, prev) {
+      if (!next && prev) {
+        const cursor = new CursorMove({})
+        cursor.init()
+      }
+    }
   }
 }
 </script>

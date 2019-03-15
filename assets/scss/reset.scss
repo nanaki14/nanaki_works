@@ -7,7 +7,7 @@ html {
   box-sizing: border-box;
   * {
     box-sizing: inherit;
-    cursor: none;
+    // cursor: none;
     &:before,
     &:after {
       box-sizing: border-box;
