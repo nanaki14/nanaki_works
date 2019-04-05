@@ -13,9 +13,14 @@ export default {
     const target = this.$refs.title
     const text = target.innerText
     target.innerText = null
-    text.split('').forEach(t => {
-      target.innerHTML += `<span>${t}</span>`
-    })
+    text
+      .trim()
+      .split('')
+      .forEach(t => {
+        target.innerHTML += `<span>${t}</span>`
+      })
+
+    target.style.display = 'block'
   }
 }
 </script>
@@ -24,6 +29,7 @@ export default {
 .Logo {
   > h1,
   > h2 {
+    display: none;
     color: $color-black87;
     font-size: 1.4rem;
     font-weight: 200;
@@ -32,6 +38,7 @@ export default {
       position: absolute;
       top: 0;
       display: block;
+      opacity: 0;
     }
   }
 }

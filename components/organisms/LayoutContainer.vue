@@ -23,30 +23,63 @@ export default {
     })
   },
   watch: {
-    isLoading: function(next, prev) {
+    isLoading: async function(next, prev) {
       if (!next && prev) {
         const winWidth = window.innerWidth
         console.log(winWidth)
         TweenMax.staggerFromTo(
           '.Logo span',
-          1.2,
+          1.5,
           {
             left: `${winWidth / 2}px`,
             scale: 1.1,
+            opacity: 0,
             cycle: {
-              x: -50,
-              z: 5
+              x: 0,
+              y: function(index) {
+                return `${Math.floor(Math.random() * 600 - 300)}px`
+              },
+              z: function(index) {
+                return `${winWidth - Math.floor(Math.random() * 40 - 20)}px`
+              },
+              left: function(index) {
+                return `${winWidth / 2 -
+                  Math.floor(Math.random() * 600 - 300)}px`
+              }
             }
           },
           {
             scale: 1,
+            opacity: 1,
             cycle: {
               x: 0,
-              z: 0,
+              y: '0px',
+              z: '0px',
+              left: function(index) {
+                return `${winWidth / 2 - 154 / 2 + index * 14 + 24}px`
+              },
+              ease: Power3.easeInOut
+            }
+          },
+          0.2
+        )
+
+        await this.$delay((1.5 + 0.3 * 12) * 1000)
+
+        TweenMax.staggerTo(
+          '.Logo span',
+          1.2,
+          {
+            scale: 1,
+            opacity: 1,
+            cycle: {
+              x: 0,
+              y: '0px',
+              z: '0px',
               left: function(index) {
                 return `${index * 14 + 24}px`
               },
-              ease: Power3.easeInOut
+              ease: Power3.easeIn
             }
           },
           0.1
