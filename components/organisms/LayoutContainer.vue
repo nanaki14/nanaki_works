@@ -26,16 +26,15 @@ export default {
     isLoading: async function(next, prev) {
       if (!next && prev) {
         const winWidth = window.innerWidth
-        console.log(winWidth)
         TweenMax.staggerFromTo(
           '.Logo span',
           1.5,
           {
             left: `${winWidth / 2}px`,
-            scale: 1.1,
+            scale: 3,
             opacity: 0,
+            rotationX: 180,
             cycle: {
-              x: 0,
               y: function(index) {
                 return `${Math.floor(Math.random() * 600 - 300)}px`
               },
@@ -51,8 +50,10 @@ export default {
           {
             scale: 1,
             opacity: 1,
+            rotationX: 0,
+            rotationY: 360,
+            rotationZ: 360,
             cycle: {
-              x: 0,
               y: '0px',
               z: '0px',
               left: function(index) {
@@ -72,14 +73,15 @@ export default {
           {
             scale: 1,
             opacity: 1,
+            rotationY: 0,
+            rotationZ: -360,
             cycle: {
-              x: 0,
               y: '0px',
               z: '0px',
               left: function(index) {
                 return `${index * 14 + 24}px`
               },
-              ease: Power3.easeIn
+              ease: Power3.easeInOut
             }
           },
           0.1
@@ -115,7 +117,6 @@ export default {
 <style lang="scss" scoped>
 .LayoutConatiner {
   position: relative;
-  background-color: #e9e9e9;
 
   .Logo {
     position: absolute;
