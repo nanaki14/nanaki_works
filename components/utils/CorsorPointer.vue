@@ -49,6 +49,9 @@ $ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
   overflow: hidden;
   z-index: 10000;
   pointer-events: none;
+  * {
+    filter: hue-rotate(180deg);
+  }
 }
 
 .#{$dot-class} {

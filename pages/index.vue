@@ -1,9 +1,17 @@
 <template>
-  <section class="container" />
+  <section class="container">
+    <WorkItem />
+  </section>
 </template>
 
 <script>
-export default {}
+import WorkItem from '@/components/molecules/WorkItem'
+
+export default {
+  components: {
+    WorkItem
+  }
+}
 </script>
 
 <style>

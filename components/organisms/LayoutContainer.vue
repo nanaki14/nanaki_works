@@ -57,7 +57,7 @@ export default {
               y: '0px',
               z: '0px',
               left: function(index) {
-                return `${winWidth / 2 - 154 / 2 + index * 14 + 24}px`
+                return `${winWidth / 2 - 168 / 2 + index * 14 + 24}px`
               },
               ease: Power3.easeInOut
             }
@@ -122,6 +122,7 @@ export default {
     position: absolute;
     top: 50%;
     left: 0;
+    z-index: 1;
   }
 }
 </style>

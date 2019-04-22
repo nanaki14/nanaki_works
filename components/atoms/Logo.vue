@@ -27,6 +27,7 @@ export default {
 
 <style lang="scss">
 .Logo {
+  pointer-events: none;
   > h1,
   > h2 {
     display: none;
@@ -38,6 +39,7 @@ export default {
       position: absolute;
       top: 0;
       display: block;
+      width: 14px;
       opacity: 0;
     }
   }
