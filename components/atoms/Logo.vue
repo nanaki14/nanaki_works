@@ -28,12 +28,13 @@ export default {
 <style lang="scss">
 .Logo {
   pointer-events: none;
+  text-shadow: 2px 1px 1px #e9e9e9;
   > h1,
   > h2 {
     display: none;
     color: $color-black87;
     font-size: 1.4rem;
-    font-weight: 200;
+    font-weight: 400;
     letter-spacing: 0.4em;
     span {
       position: absolute;

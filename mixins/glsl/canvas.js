@@ -38,6 +38,7 @@ export default class Canvas {
   init() {
     this.setConfigFunction()
     this.scene = new Scene()
+
     this.camera = new PerspectiveCamera(45, this.w / this.h, 0.1, 10000)
 
     this.material = new RawShaderMaterial({
@@ -71,7 +72,7 @@ export default class Canvas {
 
     this.container.appendChild(this.renderer.domElement)
 
-    const geo = new PlaneGeometry(1, 1)
+    const geo = new PlaneGeometry(16, 9)
     const plane = new Mesh(geo, this.material)
 
     this.scene.add(plane)
