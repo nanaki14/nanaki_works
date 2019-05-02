@@ -118,8 +118,4 @@ export default {
 .LayoutConatiner {
   position: relative;
 }
-.MainContainer {
-  position: relative;
-  z-index: 2;
-}
 </style>

@@ -41,6 +41,7 @@ export default {
 <style lang="scss" scoped>
 .WorkItem {
   position: relative;
+  box-shadow: 8px 8px 8px $color-black26;
   &:after {
     content: '';
     display: block;

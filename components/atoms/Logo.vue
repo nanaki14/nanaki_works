@@ -32,7 +32,6 @@ export default {
   position: absolute;
   top: 50%;
   left: 0;
-  pointer-events: none;
   text-shadow: 2px 1px 1px #e9e9e9;
   &__Wrapper {
     position: fixed;
@@ -41,6 +40,7 @@ export default {
     bottom: 0;
     left: 0;
     z-index: 1;
+    pointer-events: none;
   }
   > h1,
   > h2 {

@@ -24,16 +24,19 @@ export default {
 
 <style lang="scss" scoped>
 .Container {
-  overflow-x: auto;
+  padding-top: 120px;
 }
 .WorksUnit {
   display: flex;
-  align-items: center;
-  width: 600px * 8;
-  height: 100%;
+  flex-wrap: wrap;
+  max-width: 1200px;
   margin: 0 auto;
   > * {
-    width: 600px;
+    width: 30%;
+    margin: 0 0 5% 5%;
+    &:nth-child(3n + 1) {
+      margin-left: 0;
+    }
   }
 }
 </style>
