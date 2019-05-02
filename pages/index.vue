@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section class="Container">
     <div class="WorksUnit">
       <WorkItem v-for="work in works" :key="work.thumb" :thumb="work.thumb" />
     </div>
@@ -23,14 +23,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.Container {
+  overflow-x: auto;
+}
 .WorksUnit {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  max-width: 1000px;
-  width: 80%;
+  width: 600px * 8;
+  height: 100%;
+  margin: 0 auto;
   > * {
-    width: 50%;
+    width: 600px;
   }
 }
 </style>

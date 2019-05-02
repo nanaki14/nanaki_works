@@ -117,12 +117,9 @@ export default {
 <style lang="scss" scoped>
 .LayoutConatiner {
   position: relative;
-
-  .Logo {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    z-index: 1;
-  }
+}
+.MainContainer {
+  position: relative;
+  z-index: 2;
 }
 </style>

@@ -1,8 +1,10 @@
 <template>
-  <div class="Logo">
-    <h1 ref="title">
-      nanaki works
-    </h1>
+  <div class="Logo__Wrapper">
+    <div class="Logo">
+      <h1 ref="title">
+        nanaki works
+      </h1>
+    </div>
   </div>
 </template>
 
@@ -27,8 +29,19 @@ export default {
 
 <style lang="scss">
 .Logo {
+  position: absolute;
+  top: 50%;
+  left: 0;
   pointer-events: none;
   text-shadow: 2px 1px 1px #e9e9e9;
+  &__Wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
   > h1,
   > h2 {
     display: none;
