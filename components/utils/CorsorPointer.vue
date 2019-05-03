@@ -28,10 +28,6 @@ export default {
       if (!next && prev) {
         this.cursor.init()
       }
-    },
-    '$route.path': async function() {
-      await this.$delay(300)
-      this.cursor.linkTargetSet()
     }
   }
 }

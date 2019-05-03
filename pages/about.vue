@@ -21,7 +21,7 @@
     <dl>
       <dt>Contact</dt>
       <dd>
-        <a href="mailto:nanaki.works@gmail.com" class="js-link">mailto:nanaki.works@gmail.com</a>
+        <a href="mailto:nanaki.works@gmail.com">mailto:nanaki.works@gmail.com</a>
       </dd>
     </dl>
   </section>
@@ -31,6 +31,15 @@
 import { TweenMax, Power3 } from 'gsap'
 
 export default {
+  title: 'WORKS | Futurize, Inc.',
+  meta: [
+    {
+      hid: 'og:title',
+      property: 'og:title',
+      content: 'About | nanaki works'
+    },
+    { hid: 'og:url', property: 'og:url', content: 'https://futurize.jp/works' }
+  ],
   transition: {
     enter(el, done) {
       TweenMax.staggerFromTo(

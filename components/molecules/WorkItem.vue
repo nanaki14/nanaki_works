@@ -1,5 +1,5 @@
 <template>
-  <article ref="WorkItem" @mousemove="onMouseOver" @mouseleave="onMouseLeave" class="WorkItem js-link">
+  <article ref="WorkItem" @mousemove="onMouseOver" @mouseleave="onMouseLeave" class="WorkItem">
     <a :href="link" target="_blank">
       <div ref="canvasWrapper" :style="`background-image: url(${thumb})`" class="WorkItem__Inner js-CanvasWrapper" />
     </a>
