@@ -17,7 +17,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Lato:100,200,400'
+        href: 'https://fonts.googleapis.com/css?family=Lato:400,700'
       }
     ]
   },

@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { TweenMax, Power3 } from 'gsap'
 import WorkItem from '~/components/molecules/WorkItem'
 import works from '~/assets/javascript/works'
 
@@ -17,6 +18,45 @@ export default {
   computed: {
     works() {
       return works
+    }
+  },
+  transition: {
+    enter(el, done) {
+      const isMobile = window.matchMedia(`screen and (max-width: ${767}px)`)
+        .matches
+      TweenMax.staggerFromTo(
+        '.WorkItem',
+        1.3,
+        {
+          y: 30,
+          opacity: 0
+        },
+        {
+          y: 0,
+          opacity: 1,
+          ease: Power3.easeOut
+        },
+        isMobile ? 0.08 : 0.03,
+        () => {
+          done()
+        }
+      )
+    },
+    leave(el, done) {
+      const isMobile = window.matchMedia(`screen and (max-width: ${767}px)`)
+      TweenMax.staggerTo(
+        '.WorkItem',
+        0.8,
+        {
+          y: -30,
+          opacity: 0,
+          ease: Power3.easeOut
+        },
+        isMobile ? 0.05 : 0.03,
+        () => {
+          done()
+        }
+      )
     }
   }
 }

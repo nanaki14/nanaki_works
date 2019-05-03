@@ -67,7 +67,11 @@ export default {
               y: '0px',
               z: '0px',
               left: function(index) {
-                return `${winWidth / 2 - 168 / 2 + index * 14 + 24}px`
+                return `${winWidth / 2 -
+                  168 / 2 +
+                  index * 14 +
+                  (isMobile ? 18 : 24) -
+                  14}px`
               },
               ease: Power3.easeInOut
             }
@@ -79,7 +83,7 @@ export default {
 
         TweenMax.staggerTo(
           '.Logo span',
-          1.4,
+          isMobile ? 0.8 : 1.4,
           {
             top: isMobile ? 32 : '50%',
             scale: 1,
@@ -99,7 +103,7 @@ export default {
         )
 
         // Curtain
-        TweenMax.to('.Curtain', 3, {
+        TweenMax.to('.Curtain', isMobile ? 1.5 : 3, {
           x: '-10%',
           scaleX: 0,
           scaleY: 1.2,

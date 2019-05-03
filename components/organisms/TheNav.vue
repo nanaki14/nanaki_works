@@ -38,12 +38,22 @@ export default {
       margin-left: 12px;
     }
     a {
+      position: relative;
       display: block;
       padding: 4px 8px;
       font-size: 1.3rem;
       font-weight: 400;
       letter-spacing: 1px;
       text-shadow: 2px 1px 1px #e9e9e9;
+      opacity: 0.7;
+      transition: $ease-in-out-quad 0.3s;
+      &:hover {
+        opacity: 1;
+      }
+      &.nuxt-link-exact-active {
+        font-weight: 700;
+        opacity: 1;
+      }
     }
   }
 }
