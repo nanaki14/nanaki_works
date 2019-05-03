@@ -70,13 +70,15 @@ module.exports = {
             test: /\.(js|vue)$/,
             loader: 'eslint-loader',
             exclude: /(node_modules)/
-          },
-          {
-            test: /\.glsl$/,
-            loader: 'webpack-glsl-loader'
           }
         )
       }
+      config.module.rules.push(
+        {
+          test: /\.glsl$/,
+          loader: 'webpack-glsl-loader'
+        }
+      )
     }
   }
 }
