@@ -7,17 +7,50 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: 'nanaki works',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Produced by nanaki'
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'nanaki works'
+      },
+      {
+        property: 'og:type',
+        content: 'website'
+      },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: 'https://nanaki.work/'
+      },
+      {
+        property: 'og:image',
+        content: 'https://nanaki.work/images/lorem_thumb.png'
+      }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Lato:100,200,400'
+        href: 'https://fonts.googleapis.com/css?family=Lato:400,700'
+      },
+      {
+        rel: 'icon',
+        sizes: '16x16',
+        type: 'image/png',
+        href: '/images/favicon-16.png'
+      },
+      {
+        rel: 'icon',
+        sizes: '32x32',
+        type: 'image/png',
+        href: '/images/favicon-32.png'
       }
     ]
   },
@@ -70,13 +103,15 @@ module.exports = {
             test: /\.(js|vue)$/,
             loader: 'eslint-loader',
             exclude: /(node_modules)/
-          },
-          {
-            test: /\.glsl$/,
-            loader: 'webpack-glsl-loader'
           }
         )
       }
+      config.module.rules.push(
+        {
+          test: /\.glsl$/,
+          loader: 'webpack-glsl-loader'
+        }
+      )
     }
   }
 }

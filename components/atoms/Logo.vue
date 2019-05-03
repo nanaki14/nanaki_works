@@ -29,7 +29,6 @@ export default {
 
 <style lang="scss">
 .Logo {
-  position: absolute;
   top: 50%;
   left: 0;
   text-shadow: 2px 1px 1px #e9e9e9;
@@ -51,7 +50,7 @@ export default {
     letter-spacing: 0.4em;
     span {
       position: absolute;
-      top: 0;
+      top: 50%;
       display: block;
       width: 14px;
       opacity: 0;

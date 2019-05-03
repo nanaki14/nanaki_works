@@ -27,7 +27,7 @@ float snoise(vec2 v){
     dot(x12.zw,x12.zw)), 0.0);
   m = m*m ;
   m = m*m ;
-  vec3 x = 2.0 * fract(p * C.www) - 1.0;
+  vec3 x = 1.5 * fract(p * C.www) - 1.0;
   vec3 h = abs(x) - 0.5;
   vec3 ox = floor(x + 0.5);
   vec3 a0 = x - ox;
@@ -35,7 +35,7 @@ float snoise(vec2 v){
   vec3 g;
   g.x  = a0.x  * x0.x  + h.x  * x0.y;
   g.yz = a0.yz * x12.xz + h.yz * x12.yw;
-  return 130.0 * dot(m, g);
+  return 100.0 * dot(m, g);
 }
 
 float rnd(vec2 n){
@@ -67,7 +67,6 @@ vec3 render(vec2 p) {
   if(hover > 1.0) {
     c = vec3( c * whiteNoise(p, c) * 3.6);
   }
-
   return c;
 }
 
