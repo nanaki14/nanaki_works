@@ -21,7 +21,7 @@
     <dl>
       <dt>Contact</dt>
       <dd>
-        <a href="mailto:nanaki.works@gmail.com">mailto:nanaki.works@gmail.com</a>
+        <a href="mailto:nanaki.works@gmail.com">nanaki.works@gmail.com</a>
       </dd>
     </dl>
   </section>
