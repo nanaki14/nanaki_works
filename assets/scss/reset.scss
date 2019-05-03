@@ -7,7 +7,7 @@ html {
   box-sizing: border-box;
   * {
     box-sizing: inherit;
-    // cursor: none;
+    cursor: none;
     &:before,
     &:after {
       box-sizing: border-box;
@@ -31,7 +31,6 @@ body {
   line-height: 1;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: unset;
-  cursor: none;
   @media only screen and(-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 2dppx) {
     -webkit-font-smoothing: antialiased;

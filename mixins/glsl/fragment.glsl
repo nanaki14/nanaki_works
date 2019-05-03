@@ -67,7 +67,6 @@ vec3 render(vec2 p) {
   if(hover > 1.0) {
     c = vec3( c * whiteNoise(p, c) * 3.6);
   }
-
   return c;
 }
 

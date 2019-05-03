@@ -7,7 +7,7 @@
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/abour" class="js-link">
+        <nuxt-link to="/about" class="js-link">
           About
         </nuxt-link>
       </li>
@@ -26,6 +26,11 @@ export default {
   position: fixed;
   right: 48px;
   top: 32px;
+  z-index: 1;
+  @media (max-width: $s-width - 1px) {
+    top: 30px;
+    right: 4.4%;
+  }
   ul {
     display: flex;
     align-items: center;
@@ -38,6 +43,7 @@ export default {
       font-size: 1.3rem;
       font-weight: 400;
       letter-spacing: 1px;
+      text-shadow: 2px 1px 1px #e9e9e9;
     }
   }
 }

@@ -32,6 +32,8 @@ export default {
   },
   watch: {
     isLoading: async function(next, prev) {
+      const isMobile = window.matchMedia(`screen and (max-width: ${767}px)`)
+        .matches
       if (!next && prev) {
         const winWidth = window.innerWidth
         TweenMax.staggerFromTo(
@@ -77,8 +79,9 @@ export default {
 
         TweenMax.staggerTo(
           '.Logo span',
-          1.2,
+          1.4,
           {
+            top: isMobile ? 32 : '50%',
             scale: 1,
             opacity: 1,
             rotationY: 0,
@@ -92,7 +95,7 @@ export default {
               ease: Power3.easeInOut
             }
           },
-          0.1
+          0.05
         )
 
         // Curtain
@@ -100,7 +103,7 @@ export default {
           x: '-10%',
           scaleX: 0,
           scaleY: 1.2,
-          skewX: 10,
+          skewX: isMobile ? 5 : 10,
           ease: Power3.easeOut,
           onComplete: () => {
             this.isCurtainShown = false
@@ -129,6 +132,9 @@ export default {
 }
 .MainContainer {
   padding: 0 48px 0 280px;
+  @media (max-width: $s-width - 1px) {
+    padding: 0 4.4%;
+  }
 }
 .Curtain {
   position: fixed;

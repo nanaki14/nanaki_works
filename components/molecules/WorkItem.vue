@@ -1,6 +1,6 @@
 <template>
   <article ref="WorkItem" @mousemove="onMouseOver" @mouseleave="onMouseLeave" class="WorkItem js-link">
-    <a href="">
+    <a :href="link" target="_blank">
       <div ref="canvasWrapper" class="WorkItem__Inner js-CanvasWrapper" />
     </a>
   </article>
@@ -16,6 +16,11 @@ export default {
   mixins: [glsl],
   props: {
     thumb: {
+      type: String,
+      require: true,
+      default: ''
+    },
+    link: {
       type: String,
       require: true,
       default: ''
@@ -40,20 +45,23 @@ export default {
   },
   methods: {
     onMouseOver(e) {
+      const isMobile = window.matchMedia(`screen and (max-width: ${767}px)`)
+        .matches
       const domRect = this.$refs.WorkItem.getBoundingClientRect()
       const mouseX =
         ((e.clientX - domRect.left) / (domRect.right - domRect.left)) * 2.0 -
         1.0
       const mouseY =
         ((e.clientY - domRect.top) / (domRect.bottom - domRect.top)) * 2.0 - 1.0
-      TweenMax.to(this.$refs.WorkItem, 0.5, {
-        scale: 1.08,
-        x: `${mouseX * 15}px`,
-        y: `${mouseY * 20}px`,
-        ease: Power2.easeOut
-      })
-
-      this.mouseOver()
+      if (!isMobile) {
+        TweenMax.to(this.$refs.WorkItem, 0.5, {
+          scale: 1.08,
+          x: `${mouseX * 15}px`,
+          y: `${mouseY * 20}px`,
+          ease: Power2.easeOut
+        })
+        this.mouseOver()
+      }
     },
     onMouseLeave() {
       TweenMax.to(this.$refs.WorkItem, 0.5, {
@@ -77,7 +85,9 @@ export default {
   transition: box-shadow ease 0.5s;
 
   &:hover {
-    box-shadow: 4px 4px 8px $color-black26;
+    @media (min-width: $s-width) {
+      box-shadow: 4px 4px 8px $color-black26;
+    }
   }
   &:after {
     content: '';
