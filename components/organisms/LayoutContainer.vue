@@ -97,8 +97,9 @@ export default {
 
         // Curtain
         TweenMax.to('.Curtain', 3, {
-          x: -100,
+          x: '-10%',
           scaleX: 0,
+          scaleY: 1.2,
           skewX: 10,
           ease: Power3.easeOut,
           onComplete: () => {
