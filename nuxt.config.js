@@ -22,6 +22,11 @@ module.exports = {
         content: 'nanaki works'
       },
       {
+        hid: 'og:description',
+        property: 'og:description',
+        content: 'Produced by nanaki'
+      },
+      {
         property: 'og:type',
         content: 'website'
       },
