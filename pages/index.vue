@@ -30,7 +30,6 @@ export default {
   display: flex;
   flex-wrap: wrap;
   max-width: 1200px;
-  margin: 0 auto;
   > * {
     width: 30%;
     margin: 0 0 5% 5%;

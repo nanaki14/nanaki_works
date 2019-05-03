@@ -18,12 +18,20 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      cursor: new CursorMove({})
+    }
+  },
   watch: {
     isLoading: function(next, prev) {
       if (!next && prev) {
-        const cursor = new CursorMove({})
-        cursor.init()
+        this.cursor.init()
       }
+    },
+    '$route.path': async function() {
+      await this.$delay(300)
+      this.cursor.linkTargetSet()
     }
   }
 }
@@ -50,7 +58,7 @@ $ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
   z-index: 10000;
   pointer-events: none;
   * {
-    filter: hue-rotate(180deg);
+    mix-blend-mode: exclusion;
   }
 }
 

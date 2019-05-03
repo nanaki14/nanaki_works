@@ -1,9 +1,11 @@
 <template>
   <div ref="wrapper" class="LayoutConatiner">
     <Logo />
+    <TheNav />
     <main class="MainContainer">
       <slot />
     </main>
+    <div v-if="isCurtainShown" class="Curtain" />
     <CorsorPointer :isLoading="isLoading" />
   </div>
 </template>
@@ -11,12 +13,18 @@
 <script>
 import { TweenMax, Power3 } from 'gsap'
 import { mapGetters, mapActions } from 'vuex'
-import { throttle } from 'throttle-debounce'
-import CorsorPointer from '@/components/utils/CorsorPointer'
-import Logo from '@/components/atoms/Logo'
+import CorsorPointer from '~/components/utils/CorsorPointer'
+import Logo from '~/components/atoms/Logo'
+import TheNav from '~/components/organisms/TheNav'
+
 export default {
   name: 'LayoutContainer',
-  components: { CorsorPointer, Logo },
+  components: { CorsorPointer, Logo, TheNav },
+  data() {
+    return {
+      isCurtainShown: true
+    }
+  },
   computed: {
     ...mapGetters({
       isLoading: 'opening/isLoading'
@@ -86,30 +94,30 @@ export default {
           },
           0.1
         )
+
+        // Curtain
+        TweenMax.to('.Curtain', 3, {
+          x: -100,
+          scaleX: 0,
+          skewX: 10,
+          ease: Power3.easeOut,
+          onComplete: () => {
+            this.isCurtainShown = false
+          }
+        })
       }
     }
   },
   mounted() {
     window.addEventListener('load', async () => {
-      this.setContainerHeight()
       await this.$delay(1000)
       this.endLoding()
     })
-    window.addEventListener(
-      'resize',
-      throttle(200, () => {
-        this.setContainerHeight()
-      })
-    )
   },
   methods: {
     ...mapActions({
       endLoding: 'opening/endLoding'
-    }),
-    setContainerHeight() {
-      const height = window.innerHeight
-      document.querySelector('.LayoutConatiner').style.minHeight = `${height}px`
-    }
+    })
   }
 }
 </script>
@@ -117,5 +125,18 @@ export default {
 <style lang="scss" scoped>
 .LayoutConatiner {
   position: relative;
+}
+.MainContainer {
+  padding: 0 48px 0 280px;
+}
+.Curtain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 1;
+  transform-origin: 0 50%;
 }
 </style>

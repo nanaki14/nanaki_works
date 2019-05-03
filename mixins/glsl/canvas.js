@@ -28,6 +28,8 @@ export default class Canvas {
     this.uniforms = uniforms
     this.material = null
 
+    this.hover = 1
+
     this.ratio = 1
 
     this.setConfigFunction = this.setConfig.bind(this)
@@ -44,6 +46,7 @@ export default class Canvas {
     this.material = new RawShaderMaterial({
       uniforms: {
         time: { type: 'f', value: 0 },
+        hover: { type: 'f', value: this.hover },
         resolution: {
           type: 'fv2',
           value: new Vector2(this.w * this.ratio, this.h * this.ratio)
@@ -133,5 +136,22 @@ export default class Canvas {
 
     this.camera.aspect = this.w / this.h
     this.camera.updateProjectionMatrix()
+  }
+
+  mouseOver() {
+    // if (this.hover < 1.05) {
+    //   this.hover += 0.0012
+    //   window.requestAnimationFrame(this.mouseOver.bind(this))
+    // }
+    this.hover = 1.03
+    this.material.uniforms.hover.value = this.hover
+  }
+  mouseLeave() {
+    // if (this.hover > 1) {
+    //   this.hover -= 0.0012
+    //   window.requestAnimationFrame(this.mouseLeave.bind(this))
+    // }
+    this.hover = 1
+    this.material.uniforms.hover.value = this.hover
   }
 }

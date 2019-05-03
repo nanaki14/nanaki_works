@@ -63,6 +63,20 @@ export default class CursorMove {
     this.endY = window.innerHeight / 2
   }
 
+  linkTargetSet() {
+    this.$targetLink = document.querySelectorAll(this.linkClass)
+    this.$targetLink.forEach(el => {
+      el.addEventListener('mouseover', () => {
+        this.cursorHover = true
+        this.toggleCursorHover()
+      })
+      el.addEventListener('mouseout', () => {
+        this.cursorHover = false
+        this.toggleCursorHover()
+      })
+    })
+  }
+
   setupEventListeners() {
     this.$targetLink.forEach(el => {
       el.addEventListener('mouseover', () => {
