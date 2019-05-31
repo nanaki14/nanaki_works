@@ -48,17 +48,28 @@ export default {
         0
       )
 
-      await Promise.all([
-        loadImage('/images/noise_color_thumb.png'),
-        loadImage('/images/lorem_thumb.png'),
-        loadImage('/images/noise_motion_thumb.png'),
-        loadImage('/images/path_glitch_thumb.png'),
-        loadImage('/images/path_motion_thumb.png'),
-        loadImage('/images/triangle_animation_thumb.png'),
-        loadImage('/images/circle_animation_thumb.png'),
-        loadImage('/images/shape_anim_thumb.png'),
-        loadImage('/images/shape_motion_thumb.png')
-      ]).then(async () => {
+      let images
+
+      if (isMobile) {
+        images = [
+          loadImage('/images/noise_color_thumb.png'),
+          loadImage('/images/lorem_thumb.png'),
+          loadImage('/images/noise_motion_thumb.png')
+        ]
+      } else {
+        images = [
+          loadImage('/images/noise_color_thumb.png'),
+          loadImage('/images/lorem_thumb.png'),
+          loadImage('/images/noise_motion_thumb.png'),
+          loadImage('/images/path_glitch_thumb.png'),
+          loadImage('/images/path_motion_thumb.png'),
+          loadImage('/images/triangle_animation_thumb.png'),
+          loadImage('/images/circle_animation_thumb.png'),
+          loadImage('/images/shape_anim_thumb.png'),
+          loadImage('/images/shape_motion_thumb.png')
+        ]
+      }
+      await Promise.all([...images]).then(async () => {
         await this.$delay(500)
         TweenMax.staggerFromTo(
           '.WorkItem',

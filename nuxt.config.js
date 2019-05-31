@@ -57,6 +57,12 @@ module.exports = {
         type: 'image/png',
         href: '/images/favicon-32.png'
       }
+    ],
+    script: [
+      {
+        src:
+          'https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver'
+      }
     ]
   },
 
