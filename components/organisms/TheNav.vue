@@ -2,12 +2,12 @@
   <nav class="TheNav">
     <ul>
       <li>
-        <nuxt-link to="/" class="js-link">
+        <nuxt-link to="/" class="js-link" prefetch>
           Works
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/about" class="js-link">
+        <nuxt-link to="/about" class="js-link" prefetch>
           About
         </nuxt-link>
       </li>
