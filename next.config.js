@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const withTM = require('next-transpile-modules')(['three'])
+
+module.exports = withTM({
   webpack5: true,
   reactStrictMode: true,
   webpack: (config, options) => {
@@ -14,4 +16,4 @@ module.exports = {
 
     return config
   },
-}
+})
