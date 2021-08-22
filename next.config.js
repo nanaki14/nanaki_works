@@ -4,11 +4,11 @@ module.exports = {
   reactStrictMode: true,
   webpack: (config, options) => {
     config.module.rules.push({
-       test: /\.(glsl|frag|vert)$/,
+      test: /\.(glsl|frag|vert)$/,
       use: [
         options.defaultLoaders.babel,
-          { loader: "raw-loader" },
-          { loader: "glslify-loader" },
+        { loader: 'raw-loader' },
+        { loader: 'glslify-loader' },
       ],
     })
 
