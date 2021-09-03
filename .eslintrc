@@ -42,7 +42,8 @@
     "import/order": ["error"],
     "sort-destructure-keys/sort-destructure-keys": 2,
     "no-new-func": "off",
-    "import/no-named-as-default": "off"
+    "import/no-named-as-default": "off",
+    "import/named": "off"
   },
   "globals": {
     "localStorage": true,
