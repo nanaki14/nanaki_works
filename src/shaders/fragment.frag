@@ -12,7 +12,7 @@ void main(void) {
   vec3 color1 = vec3(0.92, 0.51, 0.88);
   vec3 color2 = vec3(0.14, 0.85, 1.0);
 
-  float mixValue = distance(uv * circleSize, mouse * 0.4);
+  float mixValue = distance(uv * circleSize, mouse * 0.3);
   vec3 color = mix(color1, color2, mixValue);
 
   vec2 st = fract((gl_FragCoord.xy + vec2(time * 0.0008)) / resolution * 2.9);

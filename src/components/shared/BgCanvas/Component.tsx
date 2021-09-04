@@ -1,6 +1,7 @@
 import { Suspense, useRef, VFC } from 'react'
 import { Vector2 } from 'three'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import gsap, { Power3 } from 'gsap'
 import { ContainerProps } from './Container'
 
 // @ts-ignore
@@ -11,15 +12,26 @@ import { useSelector } from '@/store'
 
 type Props = {} & ContainerProps
 
+const mousePosition = {
+  xValue: 0,
+  yValue: 0,
+}
+
 const Plane = (props: { circleSize: number }) => {
   const ref = useRef()
   const { mouse, size } = useThree()
   useFrame(({ clock }) => {
     const time = clock.getElapsedTime()
     ;(ref.current as any).material.uniforms.time.value = time
+    gsap.to(mousePosition, 2, {
+      xValue: mouse.x,
+      yValue: mouse.y,
+      overwrite: true,
+      ease: Power3.easeOut,
+    })
     ;(ref.current as any).material.uniforms.mouse.value = new Vector2(
-      mouse.x,
-      mouse.y
+      mousePosition.xValue,
+      mousePosition.yValue
     )
   })
 
@@ -33,7 +45,7 @@ const Plane = (props: { circleSize: number }) => {
       },
       mouse: {
         type: 'fv2',
-        value: new Vector2(mouse.x, mouse.y),
+        value: new Vector2(mousePosition.xValue, mousePosition.yValue),
       },
     },
     vertexShader,
