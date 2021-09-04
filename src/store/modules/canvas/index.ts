@@ -16,4 +16,4 @@ export const canvasSlice = createSlice({
   },
 })
 
-export const actions = canvasSlice.actions
+export const canvasActions = canvasSlice.actions

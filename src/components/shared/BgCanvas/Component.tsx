@@ -7,13 +7,13 @@ import { ContainerProps } from './Container'
 import vertexShader from '@/shaders/vertex.vert'
 // @ts-ignore
 import fragmentShader from '@/shaders/fragment.frag'
+import { useSelector } from '@/store'
 
 type Props = {} & ContainerProps
 
-const Plane = () => {
+const Plane = (props: { circleSize: number }) => {
   const ref = useRef()
   const { mouse, size } = useThree()
-
   useFrame(({ clock }) => {
     const time = clock.getElapsedTime()
     ;(ref.current as any).material.uniforms.time.value = time
@@ -26,6 +26,7 @@ const Plane = () => {
   const PurpleShader = {
     uniforms: {
       time: { type: 'f', value: 1.0 },
+      circleSize: { type: 'f', value: props.circleSize },
       resolution: {
         type: 'fv2',
         value: new Vector2(size.width, size.height),
@@ -48,6 +49,7 @@ const Plane = () => {
 }
 
 export const Component: VFC<Props> = () => {
+  const circleSize = useSelector((state) => state.canvas.circleSize)
   return (
     <div className="fixed inset-0">
       <Canvas
@@ -55,7 +57,7 @@ export const Component: VFC<Props> = () => {
       >
         <ambientLight intensity={0.85} />
         <Suspense fallback={null}>
-          <Plane />
+          <Plane circleSize={circleSize} />
         </Suspense>
       </Canvas>
     </div>

@@ -2,6 +2,7 @@
 
 precision highp float;
 uniform float time;
+uniform float circleSize;
 uniform vec2 resolution;
 uniform vec2 mouse;
 
@@ -11,7 +12,7 @@ void main(void) {
   vec3 color1 = vec3(0.92, 0.51, 0.88);
   vec3 color2 = vec3(0.14, 0.85, 1.0);
 
-  float mixValue = distance(uv * 0.55, mouse * 0.4);
+  float mixValue = distance(uv * circleSize, mouse * 0.4);
   vec3 color = mix(color1, color2, mixValue);
 
   vec2 st = fract((gl_FragCoord.xy + vec2(time * 0.0008)) / resolution * 2.9);

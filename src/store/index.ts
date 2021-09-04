@@ -1,11 +1,13 @@
 import { createSelectorHook } from 'react-redux'
-import { configureStore } from '@reduxjs/toolkit'
-// import { canvasStore } from './modules/canvas'
+import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import logger from 'redux-logger'
-import { combineReducers } from 'redux'
 
-import { canvasSlice } from './modules/canvas'
+import { canvasSlice, State as CanvasState } from './modules/canvas'
 import { environments } from '@/environments'
+
+export type RootState = {
+  canvas: CanvasState
+}
 
 export const createStore = () =>
   configureStore({
@@ -17,7 +19,5 @@ export const createStore = () =>
   })
 
 export type AppDispatch = ReturnType<typeof createStore>['dispatch']
-
-export type RootState = ReturnType<typeof createStore>['getState']
 
 export const useSelector = createSelectorHook<RootState>()
