@@ -22,17 +22,21 @@ const Plane = (props: { circleSize: number }) => {
   const { mouse, size } = useThree()
   useFrame(({ clock }) => {
     const time = clock.getElapsedTime()
-    ;(ref.current as any).material.uniforms.time.value = time
-    gsap.to(mousePosition, 2, {
-      xValue: mouse.x,
-      yValue: mouse.y,
-      overwrite: true,
-      ease: Power3.easeOut,
-    })
-    ;(ref.current as any).material.uniforms.mouse.value = new Vector2(
-      mousePosition.xValue,
-      mousePosition.yValue
-    )
+    const timeUntilNextFrame = 1000 / 30 - clock.getDelta()
+
+    setTimeout(() => {
+      ;(ref.current as any).material.uniforms.time.value = time
+      gsap.to(mousePosition, 3, {
+        xValue: mouse.x,
+        yValue: mouse.y,
+        overwrite: true,
+        ease: Power3.easeOut,
+      })
+      ;(ref.current as any).material.uniforms.mouse.value = new Vector2(
+        mousePosition.xValue,
+        mousePosition.yValue
+      )
+    }, Math.max(0, timeUntilNextFrame))
   })
 
   const PurpleShader = {
@@ -66,6 +70,7 @@ export const Component: VFC<Props> = () => {
     <div className="fixed inset-0">
       <Canvas
         camera={{ position: [-1, 1, 1], near: 0.01, far: 10000, fov: 60 }}
+        dpr={1}
       >
         <ambientLight intensity={0.85} />
         <Suspense fallback={null}>

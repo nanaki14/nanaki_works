@@ -11,7 +11,7 @@ export const Component: FC<Props> = (props) => {
     <>
       <div
         ref={props.wrapperRef}
-        className="fixed w-10 h-10 rounded-full pointer-events-none bg-light-30 mix-blend-screen"
+        className="fixed w-12 h-12 rounded-full pointer-events-none bg-light-10"
         style={{ willChange: 'transform' }}
       ></div>
       <div

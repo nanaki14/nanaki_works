@@ -32,15 +32,30 @@ export const Component: FC<Props> = (props) => {
         <Logo />
       </div>
       <nav className="mb-5">
-        <ul className="flex justify-end text-lg font-light leading-6 text-light-100 space-x-5">
+        <ul className="flex justify-end text-lg font-light tracking-widest leading-6 text-light-100 space-x-5">
           <li>
-            <a>WORKS</a>
+            <a>
+              <span>
+                <span>W</span>
+                <span>O</span>
+                <span>R</span>
+                <span>K</span>
+                <span>S</span>
+              </span>
+              <span>
+                <span>W</span>
+                <span>O</span>
+                <span>R</span>
+                <span>K</span>
+                <span>S</span>
+              </span>
+            </a>
           </li>
           <li>
             <a>ABOUT</a>
           </li>
           <li>
-            <a>CONTACT</a>
+            <a>TWITTER</a>
           </li>
         </ul>
       </nav>
