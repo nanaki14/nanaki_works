@@ -4,7 +4,7 @@ export type State = {
   circleSize: number
 }
 
-export const initialState = { circleSize: 0.55 } as State
+export const initialState = { circleSize: 0.65 } as State
 
 export const canvasSlice = createSlice({
   name: 'canvas',

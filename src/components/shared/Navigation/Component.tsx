@@ -27,6 +27,7 @@ export const Component: FC<Props> = (props) => {
       <div
         className="absolute w-20 h-20 bottom-[22px] -left-1"
         ref={props.logoWrapperRef}
+        style={{ willChange: 'transform' }}
       >
         <Logo />
       </div>
