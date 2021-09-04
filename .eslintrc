@@ -46,6 +46,7 @@
     "import/named": "off"
   },
   "globals": {
+    "requestAnimationFrame": true,
     "localStorage": true,
     "location": true
   }
