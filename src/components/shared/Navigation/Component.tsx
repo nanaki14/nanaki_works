@@ -34,15 +34,15 @@ export const Component: FC<Props> = (props) => {
       <nav className="mb-5">
         <ul className="flex justify-end text-lg font-light tracking-widest leading-6 text-light-100 space-x-5">
           <li>
-            <a>
-              <span>
+            <a className="block h-6 overflow-hidden">
+              <span className="flex">
                 <span>W</span>
                 <span>O</span>
                 <span>R</span>
                 <span>K</span>
                 <span>S</span>
               </span>
-              <span>
+              <span className="flex">
                 <span>W</span>
                 <span>O</span>
                 <span>R</span>
