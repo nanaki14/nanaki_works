@@ -1,10 +1,16 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
     "module": "esnext",
     "allowJs": true,
@@ -21,8 +27,18 @@
     "skipLibCheck": true,
     "noEmit": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "incremental": true
   },
-  "include": ["*.js", "*.ts", "*.tsx", "**/*.js", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "*.js",
+    "*.ts",
+    "*.tsx",
+    "**/*.js",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

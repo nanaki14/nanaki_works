@@ -3,15 +3,13 @@ const fontFamily = require('./tailwind/fontFamily')
 const transitionTimingFunction = require('./tailwind/transitionTimingFunction')
 
 module.exports = {
-  mode: 'jit',
-  purge: {
-    content: ['./src/components/**/*.{ts,tsx}', './src/pages/**/*.{ts,tsx}'],
-    enabled: process.env.NODE_ENV === 'production',
-  },
+  content: ['./src/components/**/*.{ts,tsx}', './src/pages/**/*.{ts,tsx}'],
   theme: {
     colors,
-    fontFamily,
-    transitionTimingFunction,
+    extends: {
+      fontFamily,
+      transitionTimingFunction,
+    },
   },
   variants: {},
 }
